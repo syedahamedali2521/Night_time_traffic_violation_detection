@@ -1,161 +1,104 @@
-##🚦 Traffic Violation Detection System
+# 🚦 Traffic Violation Detection System
 
-An advanced AI-powered traffic violation detection web app built with Python, YOLO, Streamlit, and EasyOCR. Automatically detect overspeeding, red-light violations, helmet violations, and license plates — all in real-time with a modern UI.
+An advanced AI-powered traffic violation detection web app built with **Python**, **YOLO**, **Streamlit**, and **EasyOCR**. Automatically detect overspeeding, red-light violations, helmet violations, and license plates — all in real-time with a modern UI.
 
-✨ Features
+## ✨ Features
 
-Vehicle Detection: Cars, motorcycles, buses, vans, trucks
+- **Vehicle Detection**: Cars, motorcycles, buses, vans, trucks  
+- **Red-Light Detection**: Identifies traffic light state (Red / Green)  
+- **Stop-Line Violation**: Detects vehicles crossing the stop-line on a red light  
+- **Speed Detection**: Tracks vehicles and estimates speed using calibration  
+- **Helmet Detection**: Detects riders without helmets  
+- **License Plate Detection**: OCR using EasyOCR  
+- **Vehicle Tracking**: Unique IDs for each vehicle  
+- **Image & Video Processing**: Analyze both formats  
+- **Export Processed Video**: Download full annotated output  
+- **Modern UI**: Gradient background, neon title, card layout  
 
-Red-Light Detection: Identifies traffic light state (Red / Green)
+## 🎨 UI Highlights
 
-Stop-Line Violation: Detects vehicles crossing the stop-line on a red light
+- Soft gradient background  
+- Clean modern cards  
+- Smooth animations  
+- Live video frame preview  
+- Sidebar settings  
+- Minimal, attractive interface  
 
-Speed Detection: Tracks vehicles and estimates their speed using pixel-to-meter calibration
+## 🚀 Getting Started
 
-Helmet Detection: Detects riders without helmets (supports optional custom helmet model)
+### Prerequisites
 
-License Plate Detection: Extracts plates and performs OCR using EasyOCR
+- Python 3.8+
+- Streamlit
+- Ultralytics YOLO
+- OpenCV
 
-Vehicle Tracking: Lightweight tracker assigns unique IDs to each vehicle
+### Installation
 
-Process Images & Videos: Upload and analyze in real time
-
-Output Video Export: Download fully processed annotated videos
-
-Custom UX: Gradient UI, cards, neon headings & modern look
-
-🎨 UI Highlights
-
-Elegant gradient background
-
-Beautiful rounded cards with hover animations
-
-Live video frame preview while processing
-
-Neon-style heading
-
-Organized sidebar configuration
-
-Smooth interface with Streamlit components
-
-🚀 Getting Started
-Prerequisites
-
-Python 3.8+
-
-pip
-
-GPU optional (YOLO runs on CPU too)
-
-Installation
-
-Clone the repository
-
+```bash
 git clone https://github.com/yourusername/traffic-violation-detection.git
 cd traffic-violation-detection
-
-
-Install dependencies
-
 pip install -r requirements.txt
+Or install manually:
 
-
-or manually:
-
+bash
+Copy code
 pip install streamlit ultralytics opencv-python easyocr numpy pillow pandas imageio
-
 Running the App
+bash
+Copy code
 streamlit run traffic_violation_app.py
+The app will run at:
 
-
-The app will open automatically in your browser at:
-
-👉 http://localhost:8501
-
+arduino
+Copy code
+http://localhost:8501
 📁 Project Structure
+Copy code
 TrafficViolationSystem/
-├── traffic_violation_app.py   # Main application
-├── models/                    # Optional YOLO weights
-└── README.md                  # Documentation
-
+├── traffic_violation_app.py
+├── models/
+└── README.md
 🛠️ Technologies Used
+Python
 
-Python – Core backend
+YOLO (Ultralytics)
 
-YOLO (Ultralytics) – Object detection
+EasyOCR
 
-EasyOCR – License plate text extraction
+Streamlit
 
-Streamlit – Web-based interface
+OpenCV
 
-OpenCV – Image/Video processing
-
-NumPy / Pandas – Data handling
+NumPy / Pandas
 
 📝 Usage
+Upload image/video
 
-Upload Image/Video
-Upload a file from the sidebar.
+Adjust confidence, IoU, speed calibration
 
-Adjust Detection Settings
+View detections (speed, violations, plates)
 
-Confidence
+Download processed video
 
-IoU Threshold
+View data table for all vehicles
 
-Stop-line position
-
-Speed calibration (pixels-per-meter, FPS)
-
-Process and View Output
-
-Bounding boxes
-
-Speed
-
-Violations
-
-Plate numbers
-
-Traffic light status
-
-Video Export
-Download the annotated final video.
-
-Data Table Output
-Includes detection info for every vehicle:
-
-ID
-
-Vehicle type
-
-Plate
-
-Speed
-
-Violations
-
-🎯 Data Structure
-
-Each detected vehicle is stored as:
-
+🎯 Vehicle Data Structure
+python
+Copy code
 {
     "id": <unique_id>,
-    "type": "car/motorcycle/bus...",
+    "type": "car/motorcycle/bus",
     "bbox": [x1, y1, x2, y2],
-    "plate": "KA05AB1234",
-    "speed_kmh": 58.4,
+    "plate": "TN09AB1234",
+    "speed_kmh": 45.8,
     "violations": "red_light,speed,no_helmet"
 }
-
 🤝 Contributing
-
-Contributions are always welcome!
-Feel free to fork this project and open pull requests with enhancements.
+Feel free to fork and submit improvements!
 
 📄 License
-
-This project is open-source and available under the MIT License.
+Open source under the MIT License
 
 Made with ❤️ using Streamlit
 
