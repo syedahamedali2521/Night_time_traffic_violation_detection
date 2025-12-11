@@ -1,141 +1,162 @@
-🚦 Traffic Violation Detection System
-YOLO + Streamlit + EasyOCR | Helmet, Speed, Red-Light, & License Plate Detection
+##🚦 Traffic Violation Detection System
 
-This project is an advanced AI-powered Traffic Violation Detection System built using YOLO, Streamlit, EasyOCR, and OpenCV.
-It automatically detects speeding, red-light jumping, helmet violations, license plates, and tracks vehicles across frames.
+An advanced AI-powered traffic violation detection web app built with Python, YOLO, Streamlit, and EasyOCR. Automatically detect overspeeding, red-light violations, helmet violations, and license plates — all in real-time with a modern UI.
 
-🧠 Features
-✅ Vehicle Detection
+✨ Features
 
-Detects multiple vehicle types such as:
+Vehicle Detection: Cars, motorcycles, buses, vans, trucks
 
-Cars
+Red-Light Detection: Identifies traffic light state (Red / Green)
 
-Trucks
+Stop-Line Violation: Detects vehicles crossing the stop-line on a red light
 
-Buses
+Speed Detection: Tracks vehicles and estimates their speed using pixel-to-meter calibration
 
-Motorcycles
+Helmet Detection: Detects riders without helmets (supports optional custom helmet model)
 
-Vans
+License Plate Detection: Extracts plates and performs OCR using EasyOCR
 
-🟥 Red-Light Violation Detection
+Vehicle Tracking: Lightweight tracker assigns unique IDs to each vehicle
 
-Detects traffic light state (Red/Green)
+Process Images & Videos: Upload and analyze in real time
 
-Determines if vehicle crosses the stop-line during a red light
+Output Video Export: Download fully processed annotated videos
 
-🏍️ Helmet Violation Detection
+Custom UX: Gradient UI, cards, neon headings & modern look
 
-Detects motorcycle riders
+🎨 UI Highlights
 
-Identifies presence/absence of helmets
+Elegant gradient background
 
-Supports optional separate helmet YOLO model
+Beautiful rounded cards with hover animations
 
-🚗 License Plate Detection & OCR
+Live video frame preview while processing
 
-Detects vehicle license plates
+Neon-style heading
 
-Extracts characters using EasyOCR
+Organized sidebar configuration
 
-Plate enhancement preprocessing included
+Smooth interface with Streamlit components
 
-📈 Speed Estimation
+🚀 Getting Started
+Prerequisites
 
-Uses object tracking across frames
+Python 3.8+
 
-Converts pixel displacement to m/s → km/h
+pip
 
-Customizable pixels-per-meter calibration
+GPU optional (YOLO runs on CPU too)
 
-Speed-limit violation detection
+Installation
 
-🎯 Object Tracking
+Clone the repository
 
-Lightweight IoU + centroid tracker
-
-Assigns unique IDs to vehicles
-
-Maintains tracks for realistic speed calculation
-
-🎥 Image + Video Support
-
-Upload images
-
-Upload & process videos
-
-Export processed video
-
-Real-time preview while processing
-
-🗂️ Project Structure
-traffic_violation_app.py   # Main Streamlit App
-README.md                  # Project Documentation
-models/                    # (Optional) YOLO weights
-
-⚙️ Installation
-1️⃣ Clone the repository
 git clone https://github.com/yourusername/traffic-violation-detection.git
 cd traffic-violation-detection
 
-2️⃣ Create virtual environment (optional)
-python -m venv venv
-source venv/bin/activate     # Linux / Mac
-venv\Scripts\activate        # Windows
 
-3️⃣ Install dependencies
+Install dependencies
+
 pip install -r requirements.txt
 
 
-If you don't have a requirements file yet, install manually:
+or manually:
 
-pip install streamlit opencv-python ultralytics easyocr pillow numpy pandas imageio
+pip install streamlit ultralytics opencv-python easyocr numpy pillow pandas imageio
 
-▶️ Running the Application
-
-Launch the Streamlit app:
-
+Running the App
 streamlit run traffic_violation_app.py
 
 
-You will see the web interface in your browser (usually at):
-👉 http://localhost:8501/
+The app will open automatically in your browser at:
 
-🎛️ App Parameters
-Parameter	Description
-Confidence	YOLO detection confidence
-IoU	Non-max suppression IoU threshold
-Stop-Line Y	Vertical pixel position of the traffic stop-line
-FPS	Video frames per second (for speed calculation)
-Pixels per meter	Calibration value for speed estimation
-Speed limit (km/h)	Flag speeding vehicles
-🧪 Supported File Types
-📸 Images
+👉 http://localhost:8501
 
-.jpg, .jpeg, .png
+📁 Project Structure
+TrafficViolationSystem/
+├── traffic_violation_app.py   # Main application
+├── models/                    # Optional YOLO weights
+└── README.md                  # Documentation
 
-🎞️ Videos
+🛠️ Technologies Used
 
-.mp4, .mkv, .avi, .webm, .mov
+Python – Core backend
 
-📊 Output
+YOLO (Ultralytics) – Object detection
 
-For each vehicle, the system returns:
+EasyOCR – License plate text extraction
 
-Vehicle ID
+Streamlit – Web-based interface
 
-Vehicle Type
+OpenCV – Image/Video processing
 
-Bounding Box
+NumPy / Pandas – Data handling
 
-License Plate Number
+📝 Usage
 
-Speed (km/h)
+Upload Image/Video
+Upload a file from the sidebar.
 
-Violations detected (comma separated)
+Adjust Detection Settings
 
-Example:
+Confidence
 
-id	type	plate	speed_kmh	violations
-3	car	KA03NB1234	58.2
+IoU Threshold
+
+Stop-line position
+
+Speed calibration (pixels-per-meter, FPS)
+
+Process and View Output
+
+Bounding boxes
+
+Speed
+
+Violations
+
+Plate numbers
+
+Traffic light status
+
+Video Export
+Download the annotated final video.
+
+Data Table Output
+Includes detection info for every vehicle:
+
+ID
+
+Vehicle type
+
+Plate
+
+Speed
+
+Violations
+
+🎯 Data Structure
+
+Each detected vehicle is stored as:
+
+{
+    "id": <unique_id>,
+    "type": "car/motorcycle/bus...",
+    "bbox": [x1, y1, x2, y2],
+    "plate": "KA05AB1234",
+    "speed_kmh": 58.4,
+    "violations": "red_light,speed,no_helmet"
+}
+
+🤝 Contributing
+
+Contributions are always welcome!
+Feel free to fork this project and open pull requests with enhancements.
+
+📄 License
+
+This project is open-source and available under the MIT License.
+
+Made with ❤️ using Streamlit
+
+Developed by Syed Ahamed Ali
